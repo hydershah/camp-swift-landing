@@ -1507,45 +1507,8 @@
                     <p class="contact-form-subtitle">Tell us about yourself and we'll match you with available lots.</p>
 
                     <!-- HubSpot Form Embed -->
-                    <div id="hubspot-form-container">
-                        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-                        <script>
-                            hbspt.forms.create({
-                                region: "na1",
-                                portalId: "YOUR_HUBSPOT_PORTAL_ID", // REPLACE WITH ACTUAL PORTAL ID
-                                formId: "YOUR_HUBSPOT_FORM_ID", // REPLACE WITH ACTUAL FORM ID
-                                target: "#hubspot-form-container",
-                                onFormReady: function($form) {
-                                    var urlParams = new URLSearchParams(window.location.search);
-                                    var leadSourceField = $form.find('input[name="lead_source"]');
-                                    if (leadSourceField.length) {
-                                        leadSourceField.val('Camp Swift Landing Page');
-                                    }
-                                    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'gbraid', 'wbraid', 'fbclid'].forEach(function(field) {
-                                        var value = urlParams.get(field);
-                                        if (value) {
-                                            var input = $form.find('input[name="' + field + '"]');
-                                            if (input.length) input.val(value);
-                                        }
-                                    });
-                                },
-                                onFormSubmit: function($form) {
-                                    window.dataLayer = window.dataLayer || [];
-                                    window.dataLayer.push({
-                                        'event': 'form_submission',
-                                        'form_name': 'Camp Swift Lead Form',
-                                        'form_location': 'landing_page'
-                                    });
-                                    if (typeof fbq !== 'undefined') {
-                                        fbq('track', 'Lead', {
-                                            content_name: 'Camp Swift Lot Inquiry',
-                                            content_category: 'Land'
-                                        });
-                                    }
-                                }
-                            });
-                        </script>
-                    </div>
+                    <script src="https://js-na2.hsforms.net/forms/embed/244220839.js" defer></script>
+                    <div class="hs-form-frame" data-region="na2" data-form-id="d8bee6a8-1b4f-40d7-ad2f-f8a058261993" data-portal-id="244220839"></div>
                 </div>
             </div>
         </div>
