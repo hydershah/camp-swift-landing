@@ -32,6 +32,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
+    <!-- MegaTag Configuration -->
+    <script>
+    window.MEGA_TAG_CONFIG = {
+        siteKey: 'sk_mkh13qdt_v2jm9jh5oic',
+        siteId: 'dbe7bf00-0273-4661-a2c1-77ffeef73d3a',
+        customerId: 'cd9509ee-e88a-4def-8083-a5d878f9370f',
+        gtmId: 'GTM-M8CKNQMC',
+        pixelId: '1502927760991301',
+        apiEndpoint: 'https://analytics.gomega.ai/submission/submit'
+    };
+    </script>
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -1496,7 +1508,6 @@
 
                     <!-- HubSpot Form Embed -->
                     <div id="hubspot-form-container">
-                        <!-- HubSpot form will be embedded here -->
                         <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
                         <script>
                             hbspt.forms.create({
@@ -1505,49 +1516,26 @@
                                 formId: "YOUR_HUBSPOT_FORM_ID", // REPLACE WITH ACTUAL FORM ID
                                 target: "#hubspot-form-container",
                                 onFormReady: function($form) {
-                                    // Pre-populate hidden fields with attribution data
                                     var urlParams = new URLSearchParams(window.location.search);
-
-                                    // Set Lead Source
                                     var leadSourceField = $form.find('input[name="lead_source"]');
                                     if (leadSourceField.length) {
                                         leadSourceField.val('Camp Swift Landing Page');
                                     }
-
-                                    // Pass UTM parameters to hidden fields
-                                    var utmFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
-                                    utmFields.forEach(function(field) {
+                                    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'gbraid', 'wbraid', 'fbclid'].forEach(function(field) {
                                         var value = urlParams.get(field);
                                         if (value) {
                                             var input = $form.find('input[name="' + field + '"]');
-                                            if (input.length) {
-                                                input.val(value);
-                                            }
-                                        }
-                                    });
-
-                                    // Pass click IDs
-                                    var clickIds = ['gclid', 'gbraid', 'wbraid', 'fbclid'];
-                                    clickIds.forEach(function(field) {
-                                        var value = urlParams.get(field);
-                                        if (value) {
-                                            var input = $form.find('input[name="' + field + '"]');
-                                            if (input.length) {
-                                                input.val(value);
-                                            }
+                                            if (input.length) input.val(value);
                                         }
                                     });
                                 },
                                 onFormSubmit: function($form) {
-                                    // Track form submission in GTM dataLayer
                                     window.dataLayer = window.dataLayer || [];
                                     window.dataLayer.push({
                                         'event': 'form_submission',
                                         'form_name': 'Camp Swift Lead Form',
                                         'form_location': 'landing_page'
                                     });
-
-                                    // Track in Meta Pixel
                                     if (typeof fbq !== 'undefined') {
                                         fbq('track', 'Lead', {
                                             content_name: 'Camp Swift Lot Inquiry',
