@@ -1513,8 +1513,16 @@
                     <p class="contact-form-subtitle">Tell us about yourself and we'll match you with available lots.</p>
 
                     <!-- HubSpot Form Embed -->
-                    <script src="https://js-na2.hsforms.net/forms/embed/244220839.js" defer></script>
-                    <div class="hs-form-frame" data-region="na2" data-form-id="d8bee6a8-1b4f-40d7-ad2f-f8a058261993" data-portal-id="244220839"></div>
+                    <div id="hubspot-form"></div>
+                    <script charset="utf-8" type="text/javascript" src="//js-na2.hsforms.net/forms/embed/v2.js"></script>
+                    <script>
+                        hbspt.forms.create({
+                            region: "na2",
+                            portalId: "244220839",
+                            formId: "d8bee6a8-1b4f-40d7-ad2f-f8a058261993",
+                            target: "#hubspot-form"
+                        });
+                    </script>
                 </div>
             </div>
         </div>
